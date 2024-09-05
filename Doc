@@ -1,0 +1,19 @@
+EffectManager
+
+EffectManager.sendUIEffect(uint id, short key, bool reliable, bool visibility, CSteamID playerID = default);
+EffectManager.sendUIEffectText(short key, CSteamID playerID, bool reliable, string objectTag, string text);
+EffectManager.sendUIEffectVisibility(short key, CSteamID playerID, bool reliable, string objectTag, bool visible);
+EffectManager.sendUIEffectImageURL(short key, CSteamID playerID, bool reliable, string objectTag, string imageURL);
+
+EffectManager Examples
+// Send the UI effect to the player
+EffectManager.sendUIEffect(1000, 1, true, true); // Sends UI with effect ID 1000 to all players
+
+// Modify the text on a UI element
+EffectManager.sendUIEffectText(1, CSteamID.Nil, true, "TextTag", "Welcome to the Build Mode!");
+
+// Make a panel invisible
+EffectManager.sendUIEffectVisibility(1, CSteamID.Nil, true, "PanelTag", false);
+
+// Change an image using a URL
+EffectManager.sendUIEffectImageURL(1, CSteamID.Nil, true, "ImageTag", "https://example.com/buildmode.png");
