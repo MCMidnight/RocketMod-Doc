@@ -19,7 +19,7 @@ ItemManager [Class]:
     +askItems(CSteamID steamID, byte x, byte y)
 
 // Note this doesnt Contain All as it will take a long time to add all the obsolete stuff
-ItemManager [Class]:
+EffectManager [Class]:
     +ReceiveUIEffectVisibility(short key, string childNameOrPath, bool visible)
     +ReceiveUIEffect4Args(ushort id, short key, string arg0, string arg1, string arg2, string arg3)
     +ReceiveUIEffect3Args(ushort id, short key, string arg0, string arg1, string arg2)
@@ -107,3 +107,24 @@ ItemManager [Class]:
     +sendEffectReliable_NonUniformScale(ushort id, ITransportConnection transportConnection, Vector3 point, Vector3 normal, Vector3 scale)
     +sendEffectReliable(ushort id, ITransportConnection transportConnection, Vector3 point, float uniformScale)
     +sendEffectReliable_NonUniformScale(ushort id, ITransportConnection transportConnection, Vector3 point, Vector3 scale)
+
+ChatManager [Class]:
+    +receiveChatMessage(CSteamID speakerSteamID, string iconURL, EChatMode mode, Color color, bool isRich, string text)
+    +ReceiveVoteStart(CSteamID origin, CSteamID target, byte votesNeeded)
+    +ReceiveVoteUpdate(byte voteYes, byte voteNo)
+    +ReceiveVoteStop(EVotingMessage message)
+    +ReceiveVoteMessage(EVotingMessage message)
+    +ReceiveSubmitVoteRequest(in ServerInvocationContext context, bool vote)
+    +ReceiveCallVoteRequest(in ServerInvocationContext context, CSteamID target)
+    +sendVote(bool vote)
+    +sendCallVote(CSteamID target)
+    +ReceiveChatEntry(CSteamID owner, string iconURL, EChatMode mode, Color color, bool rich, string text)
+    +ReceiveChatRequest(in ServerInvocationContext context, byte flags, string text)
+    +sendChat(EChatMode mode, string text)
+    +clientSendMessage_UnityEvent(EChatMode mode, string text, ClientTextChatMessenger messenger)
+    +serverSendMessage_UnityEvent(string text, Color color, string iconURL, bool useRichTextFormatting, ServerTextChatMessenger messenger)
+    +say(CSteamID target, string text, Color color, bool isRich = false)
+    +say(CSteamID target, string text, Color color, EChatMode mode, bool isRich = false)
+    +say(string text, Color color, bool isRich = false)
+    +serverSendMessage(string text, Color color, SteamPlayer fromPlayer = null, SteamPlayer toPlayer = null, EChatMode mode = EChatMode.SAY, string iconURL = null, bool useRichTextFormatting = false)
+    +
