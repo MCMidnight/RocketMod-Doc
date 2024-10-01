@@ -18,6 +18,7 @@ ItemManager [Class]:
     +tellItems(CSteamID steamID)
     +askItems(CSteamID steamID, byte x, byte y)
 
+// Note this doesnt Contain All as it will take a long time to add all the obsolete stuff
 ItemManager [Class]:
     +ReceiveUIEffectVisibility(short key, string childNameOrPath, bool visible)
     +ReceiveUIEffect4Args(ushort id, short key, string arg0, string arg1, string arg2, string arg3)
